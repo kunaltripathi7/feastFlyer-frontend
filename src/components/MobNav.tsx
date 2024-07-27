@@ -9,11 +9,10 @@ import {
 import { Separator } from "./ui/separator";
 import { Button } from "./ui/button";
 import { useAuth0 } from "@auth0/auth0-react";
-import { spawn } from "child_process";
 import MobileNavLinks from "./MobileNavLinks";
 
 function MobNav() {
-  const { isAuthenticated, loginWithRedirect, user } = useAuth0();
+  const { isAuthenticated, user, loginWithRedirect } = useAuth0();
   return (
     <Sheet>
       <SheetTrigger>
@@ -24,6 +23,7 @@ function MobNav() {
           {isAuthenticated ? (
             <span className="flex items-center font-bold gap-2">
               <CircleUserRound className="text-orange-500" />
+              {user?.email}
             </span>
           ) : (
             <span>Welcome to FeastFlyer.com!</span>
@@ -34,7 +34,12 @@ function MobNav() {
           {isAuthenticated ? (
             <MobileNavLinks />
           ) : (
-            <Button className="flex-1 font-bold bg-orange-500">Log In</Button>
+            <Button
+              className="flex-1 font-bold bg-orange-500"
+              onClick={() => loginWithRedirect()}
+            >
+              Log In
+            </Button>
           )}
         </SheetDescription>
       </SheetContent>
