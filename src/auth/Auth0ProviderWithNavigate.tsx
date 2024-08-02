@@ -1,4 +1,4 @@
-import { Auth0Provider } from "@auth0/auth0-react";
+import { AppState, Auth0Provider } from "@auth0/auth0-react";
 import { useNavigate } from "react-router-dom";
 
 // auth0 sdk provides context api under the hood to use features
@@ -17,9 +17,9 @@ const Auth0ProviderWithNavigate = ({ children }: Props) => {
     throw new Error("Unable to login");
   }
 
-  const onRedirectCallback = () => {
+  const onRedirectCallback = (appState?: AppState) => {
     // shift the logic to a new page to access the autho user.
-    navigate("/auth-callback");
+    navigate(appState?.returnTo || "/auth-callback");
   };
 
   return (

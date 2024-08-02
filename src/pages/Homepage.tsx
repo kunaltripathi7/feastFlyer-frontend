@@ -10,6 +10,7 @@ function Homepage() {
       pathname: `/search/${searchFormValues.searchQuery}`,
     });
   };
+
   return (
     <div className="flex flex-col gap-12">
       <div className="bg-white rounded-lg shadow-md py-8 flex flex-col gap-5 text-center -mt-16 md:px-32">
@@ -29,7 +30,7 @@ function Homepage() {
             Order takeaway even faster!
           </span>
           <span>
-            Download the MernEats App for faster ordering and personalised
+            Download the FeastFlyer App for faster ordering and personalised
             recommendations
           </span>
           <img src={appDownloadImage} />
