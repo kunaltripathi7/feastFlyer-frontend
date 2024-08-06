@@ -19,7 +19,7 @@ function Homepage() {
         </h1>
         <span className="text-xl">Food is just a click away!</span>
         <SearchBar
-          placeholder="Search by city or town"
+          placeholder="Search by city or town eg: manchester"
           onSubmit={handleSearchSubmit}
         />
       </div>
