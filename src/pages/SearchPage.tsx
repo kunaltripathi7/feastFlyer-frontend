@@ -30,7 +30,9 @@ function SearchPage() {
   const { results, isLoading } = useSearchRestaurants(searchState, city);
 
   if (isLoading) {
-    return <span>Loading...</span>;
+    return (
+      <span>Loading... please wait render takes some time on intial load</span>
+    );
   }
 
   if (!results?.data || !city) {
