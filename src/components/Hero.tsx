@@ -6,9 +6,9 @@ function Hero() {
   const [loading, setLoading] = useState(true);
 
   return (
-    <div className="relative">
+    <div>
       {loading && (
-        <div className="flex justify-center items-center h-96">
+        <div className="flex justify-center items-center h-[600px]">
           <FadeLoader color="#000000" />
         </div>
       )}
