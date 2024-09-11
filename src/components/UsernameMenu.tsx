@@ -1,4 +1,4 @@
-import { CircleUserRound } from "lucide-react";
+import { ChevronDown, CircleUserRound } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -9,15 +9,18 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { Link } from "react-router-dom";
 import { Separator } from "./ui/separator";
 import { Button } from "./ui/button";
+import { useState } from "react";
 
 const UsernameMenu = () => {
   const { user, logout } = useAuth0();
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
-    <DropdownMenu>
+    <DropdownMenu onOpenChange={(open) => setIsOpen(open)}>
       <DropdownMenuTrigger className="flex items-center px-3 font-bold hover:text-orange-500 gap-2">
         <CircleUserRound className="text-orange-500" />
         {user?.email}
+        <ChevronDown className={`h-4 w-4 ${isOpen && "rotate-180"}`} />
       </DropdownMenuTrigger>
       <DropdownMenuContent>
         <DropdownMenuItem>
