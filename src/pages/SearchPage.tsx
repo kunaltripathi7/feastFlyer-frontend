@@ -31,7 +31,7 @@ function SearchPage() {
 
   if (isLoading) {
     return (
-      <span>Loading... please wait render takes some time on intial load</span>
+      <span>Loading... Please wait it takes some time on initial load</span>
     );
   }
 
